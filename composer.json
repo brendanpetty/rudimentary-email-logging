@@ -1,5 +1,5 @@
 {
-    "name": "brendan/rudimentary-email-logging",
+    "name": "brendanpetty/rudimentary-email-logging",
     "description": "Very simple Laravel package to allow log entries to be sent immediately as an email",
     "type": "project",
     "license": "GPL-v3.0",
