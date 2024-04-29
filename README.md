@@ -10,6 +10,8 @@ in config/logging.php
 ```
 use Brendanpetty\RudimentaryEmailLogging\EmailLogger;
 
+'default' => env('LOG_CHANNEL', 'stack'),
+
 'channels' => [
     'stack' => [
         'channels' => ['daily', 'email'],
