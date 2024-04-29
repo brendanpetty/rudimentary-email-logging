@@ -5,6 +5,7 @@ namespace Brendanpetty\RudimentaryEmailLogging;
 use Monolog\Logger;
 use Monolog\LogRecord;
 use Monolog\Level;
+use Brendanpetty\RudimentaryEmailLogging\handler\EmailLogHandler;
 
 class EmailLogger
 {
