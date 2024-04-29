@@ -1,6 +1,6 @@
 <?php
 
-namespace Brendanpetty\RudimentaryEmailLogging;
+namespace Brendanpetty\RudimentaryEmailLogging\handler;
 
 use Brendanpetty\RudimentaryEmailLogging\Mail\LogEntry;
 use Illuminate\Support\Facades\Mail;
