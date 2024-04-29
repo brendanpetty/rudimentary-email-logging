@@ -3,45 +3,45 @@ Very simple Laravel package to allow log entries to be sent immediately as an em
 
 # Installation
 ```
-    composer require brendanpetty/rudimentary-email-logging
+composer require brendanpetty/rudimentary-email-logging
 ```
 
 in config/logging.php
 ```
-    use Brendanpetty\RudimentaryEmailLogging\EmailLogger;
+use Brendanpetty\RudimentaryEmailLogging\EmailLogger;
 
-    'channels' => [
-        'stack' => [
-            'channels' => ['daily', 'email'],
-        ],
+'channels' => [
+    'stack' => [
+        'channels' => ['daily', 'email'],
+    ],
 
-        'email' => [
-            'driver' => 'custom',
-            'via' => EmailLogger::class,
-            'level' => 'warning',
-            'to' => env('MAIL_FROM_ADDRESS'),
-            'from' => env('MAIL_FROM_ADDRESS'),
-            'subject' => env('APP_NAME') . ' Log',
-        ],
-    ]
+    'email' => [
+        'driver' => 'custom',
+        'via' => EmailLogger::class,
+        'level' => 'warning',
+        'to' => env('MAIL_FROM_ADDRESS'),
+        'from' => env('MAIL_FROM_ADDRESS'),
+        'subject' => env('APP_NAME') . ' Log',
+    ],
+]
 ```
 
 in app/providers/AppServiceProvider.php
 ```
-    use Brendanpetty\RudimentaryEmailLogging\EmailLogHandler;
+use Brendanpetty\RudimentaryEmailLogging\EmailLogHandler;
 
-    public function boot()
-    {
-        Log::extend('email', function ($app, $config) {
-            return new Logger('email', [new EmailLogHandler()]);
-        });
-    }
+public function boot()
+{
+    Log::extend('email', function ($app, $config) {
+        return new Logger('email', [new EmailLogHandler()]);
+    });
+}
 ```
 
 # Usage
 ```
-    use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Log;
 
-    Log::warning('warning message');
-    Log::error('error message');
+Log::warning('warning message');
+Log::error('error message');
 ```
