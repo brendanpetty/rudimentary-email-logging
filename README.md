@@ -19,11 +19,23 @@ in config/logging.php
             'driver' => 'custom',
             'via' => EmailLogger::class,
             'level' => 'warning',
-            'to' => '???',
-            'from' => '???',
-            'subject' => '???',
+            'to' => env('MAIL_FROM_ADDRESS'),
+            'from' => env('MAIL_FROM_ADDRESS'),
+            'subject' => env('APP_NAME') . ' Log',
         ],
     ]
+```
+
+in app/providers/AppServiceProvider.php
+```
+    use Brendanpetty\RudimentaryEmailLogging\EmailLogHandler;
+
+    public function boot()
+    {
+        Log::extend('email', function ($app, $config) {
+            return new Logger('email', [new EmailLogHandler()]);
+        });
+    }
 ```
 
 # Usage
