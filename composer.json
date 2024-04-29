@@ -2,7 +2,7 @@
     "name": "brendanpetty/rudimentary-email-logging",
     "description": "Very simple Laravel package to allow log entries to be sent immediately as an email",
     "type": "library",
-    "license": "GPL-v3.0",
+    "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
             "Brendanpetty\\RudimentaryEmailLogging\\": "src"
