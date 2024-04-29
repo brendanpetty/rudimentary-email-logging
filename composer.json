@@ -25,6 +25,6 @@
             "providers": [
                 "Brendanpetty\\RudimentaryEmailLogging\\EmailLoggerServiceProvider"
             ]
-        }
+        } 
     }
 }
