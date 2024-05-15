@@ -21,23 +21,11 @@ use Brendanpetty\RudimentaryEmailLogging\EmailLogger;
         'driver' => 'custom',
         'via' => EmailLogger::class,
         'level' => 'warning',
-        'to' => env('MAIL_FROM_ADDRESS'),
-        'from' => env('MAIL_FROM_ADDRESS'),
-        'subject' => env('APP_NAME') . ' Log',
+        'to' => env('MAIL_FROM_ADDRESS'),       // or 'email@address.com'
+        'from' => env('MAIL_FROM_ADDRESS'),     // or 'email@address.com'
+        'subject' => env('APP_NAME') . ' Log',  // or whatever
     ],
 ]
-```
-
-in app/providers/AppServiceProvider.php
-```
-use Brendanpetty\RudimentaryEmailLogging\EmailLogHandler;
-
-public function boot()
-{
-    Log::extend('email', function ($app, $config) {
-        return new Logger('email', [new EmailLogHandler()]);
-    });
-}
 ```
 
 # Usage
